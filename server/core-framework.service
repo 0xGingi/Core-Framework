@@ -1,0 +1,17 @@
+[Unit]
+Description=Core Framework Game Server
+After=network.target
+
+[Service]
+User=gingi
+Group=gingi
+WorkingDirectory=/home/gingi/Core-Framework/server
+ExecStart=/home/gingi/Core-Framework/server/ant_launcher.sh local g1gc
+Restart=on-failure
+# Consider adding memory limits if needed, e.g.:
+# MemoryMax=4G
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target 

@@ -22,10 +22,10 @@ fi
 echo "Running the game server with config named \"$1.conf\"."
 
 # Default to ZGC for production use
-command="ant runserverzgc -DconfFile=$1"
+command="/usr/bin/ant -v runserverzgc -DconfFile=$1"
 # Use Java 8 if we specify it, like from single player run_server.sh
 if [[ -n $2 && $2 == "g1gc" ]]; then 
-    command="ant runserver -DconfFile=$1"
+    command="/usr/bin/ant -v runserver -DconfFile=$1"
 fi    
 
-screen -dmS $1 $command
+$command
